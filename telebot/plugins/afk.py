@@ -43,7 +43,7 @@ afk_time = None
 last_afk_message = {}
 afk_start = {}
 BOTLOG = True
-CUSTOM_AFK = Var.CUSTOM_AFK if Var.CUSTOM_AFK else "I am currently unavailable!"
+CUSTOM_AFK = Var.CUSTOM_AFK if Var.CUSTOM_AFK else "He is Offline! Don't Tag him Again and Again!"
 botname = Var.TG_BOT_USER_NAME_BF_HER
 if botname.startswith("@"):
     MYBOT = botname
@@ -97,16 +97,16 @@ async def on_afk(event):
     if USER_AFK and not (await event.get_sender()).bot:
         msg = None
         if reason is not None and tele == "True":
-            message_to_reply = "**AFK**\n{}\n\n**Last active** `{}` **ago.**\n\n**Reason** : {}".format(
-                CUSTOM_AFK, endtime, reason
+            message_to_reply = "**Ninja Naveen is AFK!**\nHe is Offline! Don't Tag him Again and Again!\n\n**Since:-** `{}`\n**Reason**:- {}".format(
+                endtime, reason
             )
         elif tele == "False":
-            message_to_reply = "**AFK**\n{}\n\n**Last active** `{}` **ago.**\n\n**Reason** - {}".format(
-                CUSTOM_AFK, endtime, reason
+            message_to_reply = "**Ninja Naveen is AFK!**\nHe is Offline! Don't Tag him Again and Again!\n\n**Since:-** `{}`\n\n**Reason**:- {}".format(
+                endtime, reason
             )
         else:
-            message_to_reply = "**AFK**\n{}\n\n**Last active** {} **ago.**".format(
-                CUSTOM_AFK, endtime
+            message_to_reply = "**Ninja Naveen is AFK!**\nHe is Offline! Don't Tag him Again and Again!\n\n**Since:-** {}".format(
+                endtime
             )
         if event.chat_id not in Config.UB_BLACK_LIST_CHAT:
             msg = await event.reply(message_to_reply)
@@ -185,7 +185,7 @@ async def _(event):
         USER_AFK = f"on: {reason}"
         if reason:
             await event.edit(
-                f"`Your status has been set to AFK.`\n**Reason** - {reason}"
+                f"`Your status has been set to AFK.`\n**Reason**:- {reason}"
             )
             await asyncio.sleep(5)
             await event.delete()
